@@ -1,6 +1,7 @@
 ﻿using System;
 using Makaretu.Dns;
 using System.Linq;
+using System.Diagnostics;
 
 namespace MDNSPublisher.Services
 {
@@ -12,38 +13,42 @@ namespace MDNSPublisher.Services
 
             foreach (var a in MulticastService.GetIPAddresses())
             {
-                Console.WriteLine($"IP address {a}");
+                Debug.WriteLine($"IP address {a}");
             }
 
             mdns.QueryReceived += (s, e) =>
             {
                 var names = e.Message.Questions
                     .Select(q => q.Name + " " + q.Type);
-                Console.WriteLine($"got a query for {String.Join(", ", names)}");
+                Debug.WriteLine($"got a query for {String.Join(", ", names)}");
             };
             mdns.AnswerReceived += (s, e) =>
             {
                 var names = e.Message.Answers
                     .Select(q => q.Name + " " + q.Type)
                     .Distinct();
-                Console.WriteLine($"got answer for {String.Join(", ", names)}");
+                Debug.WriteLine($"got answer for {String.Join(", ", names)}");
             };
             mdns.NetworkInterfaceDiscovered += (s, e) =>
             {
                 foreach (var nic in e.NetworkInterfaces)
                 {
-                    Console.WriteLine($"discovered NIC '{nic.Name}'");
+                    Debug.WriteLine($"discovered NIC '{nic.Name}'");
                 }
             };
 
             var sd = new ServiceDiscovery(mdns);
-            sd.Advertise(new ServiceProfile("ipfs1", "_ipfs-discovery._udp", 5010));
-            sd.Advertise(new ServiceProfile("x1", "_xservice._tcp", 5011));
-            sd.Advertise(new ServiceProfile("x2", "_xservice._tcp", 666));
-            var z1 = new ServiceProfile("z1", "_zservice._udp", 5012);
-            z1.AddProperty("foo", "bar");
-            sd.Advertise(z1);
-
+           
+            var s1 = new ServiceProfile("EbramMobile", "_airplay._tcp.", 7000);
+           
+            s1.AddProperty("features", "0xA7FFFF7,0xE");
+            s1.AddProperty("flags", "0x4");
+            s1.AddProperty("model", "AppleTV5,3");
+            s1.AddProperty("pi", "6b448552-85ce-4143-a896-e28d12e8a0ab");
+            s1.AddProperty("pk", "F381DC574DEAF9C70B75297755BC7C7C35BB1D0DB500258F3AB46B5FE7C7355B");
+            s1.AddProperty("srcvers", "220.68");
+            s1.AddProperty("vv", "2");
+            sd.Advertise(s1);
             mdns.Start();
         }
     }
