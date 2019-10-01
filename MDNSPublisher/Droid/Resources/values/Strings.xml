@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+     <string name="start">Start</string>
+     <string name="stop">Stop</string>
     <string name="hello">Hello World, Click Me!</string>
     <string name="app_name">MDNSPublisher</string>
     <string name="tab1">Browse</string>
