@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common.Logging;
+//using Common.Logging;
 using Makaretu.Dns.Resolving;
 
 namespace Makaretu.Dns
@@ -13,7 +13,7 @@ namespace Makaretu.Dns
     /// <seealso href="https://tools.ietf.org/html/rfc6763">RFC 6763 DNS-Based Service Discovery</seealso>
     public class ServiceDiscovery : IDisposable
     {
-        static readonly ILog log = LogManager.GetLogger(typeof(ServiceDiscovery));
+     //   static readonly ILog log = LogManager.GetLogger(typeof(ServiceDiscovery));
         static readonly DomainName LocalDomain = new DomainName("local");
         static readonly DomainName SubName = new DomainName("_sub");
 
@@ -290,14 +290,14 @@ namespace Makaretu.Dns
         void OnAnswer(object sender, MessageEventArgs e)
         {
             var msg = e.Message;
-            if (log.IsDebugEnabled)
-            {
-                log.Debug($"Answer from {e.RemoteEndPoint}");
-            }
-            if (log.IsTraceEnabled)
-            {
-                log.Trace(msg);
-            }
+            //if (log.IsDebugEnabled)
+            //{
+            //    log.Debug($"Answer from {e.RemoteEndPoint}");
+            //}
+            //if (log.IsTraceEnabled)
+            //{
+            //    log.Trace(msg);
+            //}
 
             // Any DNS-SD answers?
 
@@ -335,14 +335,14 @@ namespace Makaretu.Dns
         {
             var request = e.Message;
 
-            if (log.IsDebugEnabled)
-            {
-                log.Debug($"Query from {e.RemoteEndPoint}");
-            }
-            if (log.IsTraceEnabled)
-            {
-                log.Trace(request);
-            }
+            //if (log.IsDebugEnabled)
+            //{
+            //    log.Debug($"Query from {e.RemoteEndPoint}");
+            //}
+            //if (log.IsTraceEnabled)
+            //{
+            //    log.Trace(request);
+            //}
 
             // Determine if this query is requesting a unicast response
             // and normalise the Class.
@@ -391,14 +391,14 @@ namespace Makaretu.Dns
                 Mdns.SendAnswer(response, e);
             }
 
-            if (log.IsDebugEnabled)
-            {
-                log.Debug($"Sending answer");
-            }
-            if (log.IsTraceEnabled)
-            {
-                log.Trace(response);
-            }
+            //if (log.IsDebugEnabled)
+            //{
+            //    log.Debug($"Sending answer");
+            //}
+            //if (log.IsTraceEnabled)
+            //{
+            //    log.Trace(response);
+            //}
             //Console.WriteLine($"Response time {(DateTime.Now - request.CreationTime).TotalMilliseconds}ms");
         }
 

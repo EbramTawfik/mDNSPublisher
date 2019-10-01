@@ -11,9 +11,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Common.Logging" Version="3.4.1" />
-    <PackageReference Include="IPNetwork2" Version="2.1.2" />
-    <PackageReference Include="Makaretu.Dns" Version="2.0.1" />
-    <PackageReference Include="Tmds.LibC" Version="0.2.0" />
+    <ProjectReference Include="..\..\netDns\net-dns\src\Dns.csproj" />
   </ItemGroup>
 </Project>

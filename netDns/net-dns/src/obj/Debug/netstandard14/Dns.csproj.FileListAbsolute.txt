@@ -1,0 +1,12 @@
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/netstandard14/Makaretu.Dns.deps.json
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/netstandard14/Makaretu.Dns.dll
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/netstandard14/Makaretu.Dns.pdb
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/netstandard14/Makaretu.Dns.xml
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Dns.csprojAssemblyReference.cache
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Dns.csproj.CoreCompileInputs.cache
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Dns.sourcelink.json
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Dns.AssemblyInfoInputs.cache
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Dns.AssemblyInfo.cs
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Makaretu.Dns.dll
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Makaretu.Dns.xml
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/netstandard14/Makaretu.Dns.pdb

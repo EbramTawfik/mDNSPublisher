@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net472;net45;netcoreapp2.1;netcoreapp1.1</TargetFrameworks>
+
+    <IsPackable>false</IsPackable>
+    <DebugType>full</DebugType>
+    <RootNamespace>Makaretu.Dns</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- https://github.com/tonerdo/coverlet -->
+    <!-- Do not collect by default -->
+    <CollectCoverage>false</CollectCoverage>
+    <CoverletOutputFormat>opencover</CoverletOutputFormat>
+    <!--<Exclude>[xunit.*]*</Exclude>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" PrivateAssets="all" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" PrivateAssets="all" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" PrivateAssets="all" />
+    <PackageReference Include="coverlet.msbuild" Version="2.6.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Dns.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.1'">
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

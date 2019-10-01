@@ -1,0 +1,51 @@
+- name: Introduction
+  href: intro.md
+- name: Resource Records
+  href: rr.md
+  items:
+    - name: Registry
+      href: rr-registry.md
+    - name: Equality
+      href: rr-equality.md
+- name: DNS Security
+  href: dnssec.md
+  items:
+    - name: Resource Records
+      href: rr-dnssec.md
+    - name: Cryptography
+      href: crypto.md
+- name: Extended DNS
+  href: edns.md
+  items:
+    - name: Options
+      href: eoption.md
+    - name: Opcode
+      href: eopcode.md
+- name: Message
+  href: message.md
+  items:
+    - name: Wire Format
+      href: wire.md
+    - name: Truncation
+      href: truncate.md
+    - name: Pretty Print
+      href: pretty-print.md
+- name: Master File
+  href: master-file.md
+  items:
+    - name: Loading
+    - name: Presentation Format
+      href: presentation.md
+      items:
+        - name: Directives
+        - name: Resource Records
+- name: Resolving
+  href: resolving.md
+  items:
+    - name: Catalog
+      href: catalog.md
+    - name: Name Server
+      href: name-server.md
+- name: Class Reference
+  href: ../api/Makaretu.Dns.yml
+  

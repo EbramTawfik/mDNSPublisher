@@ -1,4 +1,4 @@
-﻿using Common.Logging;
+﻿//using Common.Logging;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Runtime.InteropServices;
+// using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace Makaretu.Dns
@@ -17,7 +17,7 @@ namespace Makaretu.Dns
     /// </summary>
     class MulticastClient : IDisposable
     {
-        static readonly ILog log = LogManager.GetLogger(typeof(MulticastClient));
+     //   static readonly ILog log = LogManager.GetLogger(typeof(MulticastClient));
 
         /// <summary>
         ///   The port number assigned to Multicast DNS.
@@ -48,10 +48,10 @@ namespace Makaretu.Dns
                 receiver4 = new UdpClient(AddressFamily.InterNetwork);
                 receiver4.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 #if NETSTANDARD2_0
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                {
-                    LinuxHelper.ReuseAddresss(receiver4.Client);
-                }
+                //if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                //{
+                //    LinuxHelper.ReuseAddresss(receiver4.Client);
+                //}
 #endif
                 receiver4.Client.Bind(new IPEndPoint(IPAddress.Any, MulticastPort));
                 receivers.Add(receiver4);
@@ -63,10 +63,10 @@ namespace Makaretu.Dns
                 receiver6 = new UdpClient(AddressFamily.InterNetworkV6);
                 receiver6.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 #if NETSTANDARD2_0
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                {
-                    LinuxHelper.ReuseAddresss(receiver6.Client);
-                }
+                //if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                //{
+                //    LinuxHelper.ReuseAddresss(receiver6.Client);
+                //}
 #endif
                 receiver6.Client.Bind(new IPEndPoint(IPAddress.IPv6Any, MulticastPort));
                 receivers.Add(receiver6);
@@ -94,10 +94,10 @@ namespace Makaretu.Dns
                             receiver4.Client.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, new MulticastOption(MulticastAddressIp4, address));
                             sender.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 #if NETSTANDARD2_0
-                            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                            {
-                                LinuxHelper.ReuseAddresss(sender.Client);
-                            }
+                            //if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                            //{
+                            //    LinuxHelper.ReuseAddresss(sender.Client);
+                            //}
 #endif
                             sender.Client.Bind(localEndpoint);
                             sender.Client.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, new MulticastOption(MulticastAddressIp4));
@@ -114,7 +114,7 @@ namespace Makaretu.Dns
                             throw new NotSupportedException($"Address family {address.AddressFamily}.");
                     }
 
-                    log.Debug($"Will send via {localEndpoint}");
+                    //log.Debug($"Will send via {localEndpoint}");
                     if (!senders.TryAdd(address, sender)) // Should not fail
                     {
                         sender.Dispose();
@@ -127,7 +127,7 @@ namespace Makaretu.Dns
                 }
                 catch (Exception e)
                 {
-                    log.Error($"Cannot setup send socket for {address}: {e.Message}");
+                    //log.Error($"Cannot setup send socket for {address}: {e.Message}");
                     sender.Dispose();
                 }
             }
@@ -153,7 +153,7 @@ namespace Makaretu.Dns
                 }
                 catch (Exception e)
                 {
-                    log.Error($"Sender {sender.Key} failure: {e.Message}");
+                    //log.Error($"Sender {sender.Key} failure: {e.Message}");
                     // eat it.
                 }
             }

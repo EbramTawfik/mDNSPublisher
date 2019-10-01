@@ -1,0 +1,13 @@
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/net45/Makaretu.Dns.dll
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/net45/Makaretu.Dns.pdb
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/net45/Makaretu.Dns.xml
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/bin/Debug/net45/SimpleBase.dll
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Dns.csprojAssemblyReference.cache
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Dns.csproj.CoreCompileInputs.cache
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Dns.sourcelink.json
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Dns.AssemblyInfoInputs.cache
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Dns.AssemblyInfo.cs
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Dns.csproj.CopyComplete
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Makaretu.Dns.dll
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Makaretu.Dns.xml
+/Users/etawfik/MyGitProj/mDNSPublisher/netDns/net-dns/src/obj/Debug/net45/Makaretu.Dns.pdb

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDNSPublisher.Droid", "Droi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDNS", "MDNS\MDNS.csproj", "{5EF35E48-A201-4149-9B17-9CF0C5E86000}"
 EndProject
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Dns", "..\netDns\net-dns\src\Dns.csproj", "{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -55,5 +57,17 @@ Global
 		{5EF35E48-A201-4149-9B17-9CF0C5E86000}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EF35E48-A201-4149-9B17-9CF0C5E86000}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EF35E48-A201-4149-9B17-9CF0C5E86000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Release|iPhone.Build.0 = Release|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D5A6892-ECC4-489C-8F19-5EA3FFD5C61B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

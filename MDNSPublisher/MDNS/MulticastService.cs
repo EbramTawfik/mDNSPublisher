@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Concurrent;
+//using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
-using Common.Logging;
+//using Common.Logging;
 
 namespace Makaretu.Dns
 {
@@ -31,8 +31,10 @@ namespace Makaretu.Dns
         const int maxDatagramSize = Message.MaxLength;
 
         static readonly TimeSpan maxLegacyUnicastTTL = TimeSpan.FromSeconds(10);
-        static readonly ILog log = LogManager.GetLogger(typeof(MulticastService));
-        static readonly IPNetwork[] LinkLocalNetworks = new[] { IPNetwork.Parse("169.254.0.0/16"), IPNetwork.Parse("fe80::/10") };
+        //    static readonly ILog log = LogManager.GetLogger(typeof(MulticastService));
+        //static readonly IPNetwork[] LinkLocalNetworks = new[] { IPNetwork.Parse("169.254.0.0/16"), IPNetwork.Parse("fe80::/10") };
+
+        static readonly IPAddress[] LinkLocalNetworks = new[] { IPAddress.Parse("169.254.0.0")};
 
         List<NetworkInterface> knownNics = new List<NetworkInterface>();
         int maxPacketSize;
@@ -263,12 +265,12 @@ namespace Makaretu.Dns
 
         void FindNetworkInterfaces()
         {
-            log.Debug("Finding network interfaces");
+           // log.Debug("Finding network interfaces");
 
             try
             {
                 var currentNics = GetNetworkInterfaces().ToList();
-
+                currentNics = currentNics.Where(n => n.Name.Contains("en")).ToList();
                 var newNics = new List<NetworkInterface>();
                 var oldNics = new List<NetworkInterface>();
 
@@ -276,20 +278,20 @@ namespace Makaretu.Dns
                 {
                     oldNics.Add(nic);
 
-                    if (log.IsDebugEnabled)
-                    {
-                        log.Debug($"Removed nic '{nic.Name}'.");
-                    }
+                    //if (log.IsDebugEnabled)
+                    //{
+                    //    log.Debug($"Removed nic '{nic.Name}'.");
+                    //}
                 }
 
                 foreach (var nic in currentNics.Where(nic => !knownNics.Any(k => k.Id == nic.Id)))
                 {
                     newNics.Add(nic);
 
-                    if (log.IsDebugEnabled)
-                    {
-                        log.Debug($"Found nic '{nic.Name}'.");
-                    }
+                    //if (log.IsDebugEnabled)
+                    //{
+                    //    log.Debug($"Found nic '{nic.Name}'.");
+                    //}
                 }
 
                 knownNics = currentNics;
@@ -297,19 +299,20 @@ namespace Makaretu.Dns
                 // Only create client if something has change.
                 if (newNics.Any() || oldNics.Any())
                 {
-                    client?.Dispose();
-                    client = new MulticastClient(UseIpv4, UseIpv6, networkInterfacesFilter?.Invoke(knownNics) ?? knownNics);
+                    // client?.Dispose();
+                    client = new MulticastClient(UseIpv4, UseIpv6, knownNics);
+                    //client = new MulticastClient(UseIpv4, UseIpv6, networkInterfacesFilter?.Invoke(knownNics) ?? knownNics);
                     client.MessageReceived += OnDnsMessage;
                 }
 
                 // Tell others.
-                if (newNics.Any())
-                {
-                    NetworkInterfaceDiscovered?.Invoke(this, new NetworkInterfaceEventArgs
-                    {
-                        NetworkInterfaces = newNics
-                    });
-                }
+                //if (newNics.Any())
+                //{
+                //    NetworkInterfaceDiscovered?.Invoke(this, new NetworkInterfaceEventArgs
+                //    {
+                //        NetworkInterfaces = newNics
+                //    });
+                //}
 
                 // Magic from @eshvatskyi
                 //
@@ -322,7 +325,7 @@ namespace Makaretu.Dns
             }
             catch (Exception e)
             {
-                log.Error("FindNics failed", e);
+                //log.Error("FindNics failed", e);
             }
         }
 
@@ -631,7 +634,7 @@ namespace Makaretu.Dns
             }
             catch (Exception e)
             {
-                log.Warn("Received malformed message", e);
+                //log.Warn("Received malformed message", e);
                 MalformedMessage?.Invoke(this, result.Buffer);
                 return; // eat the exception
             }
@@ -655,7 +658,7 @@ namespace Makaretu.Dns
             }
             catch (Exception e)
             {
-                log.Error("Receive handler failed", e);
+                //log.Error("Receive handler failed", e);
                 // eat the exception
             }
         }
