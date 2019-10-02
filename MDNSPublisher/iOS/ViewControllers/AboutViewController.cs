@@ -17,7 +17,7 @@ namespace MDNSPublisher.iOS
             base.ViewDidLoad();
 
             Title = ViewModel.Title;
-            MDNSServicePublisher m = new MDNSServicePublisher();
+
             AppNameLabel.Text = "MDNSPublisher";
             VersionLabel.Text = "1.0";
             AboutTextView.Text = "This app is written in C# and native APIs using the Xamarin Platform. It shares code with its iOS, Android, & Windows versions.";
